@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Welcome</title>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSZw16C3mESz2yByXYr_Dl79WwxKYfags&sensor=true"></script>
+		<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://cdn.menkr.com/sea.js" data-config="config/config.js" charset="utf-8"></script>
+		<style type="text/css">
+			html,body,#maps{
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+		<script>
+		seajs.use(['jquery'], function($) {
+			$(function(){
+				var map=window.map=new google.maps.Map($("#maps").get(0));
+				map.setCenter(new google.maps.LatLng(40.71156, -73.95925));
+				map.setZoom(13);
+				map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+				var myLatlng = new google.maps.LatLng(40.71156,-73.95925);
+
+				var marker = new google.maps.Marker({
+					position: myLatlng,
+					map: map,
+					icon: new google.maps.MarkerImage(
+						"http://chi.dlmu.net/templates/thumbs/dish/dpr.png",
+						new google.maps.Size(57, 57), /* size is determined at runtime */
+						null, /* origin is 0,0 */
+						null, /* anchor is bottom center of the scaled image */
+						new google.maps.Size(57, 57)
+					),
+					title:"Hello World!"
+				});
+
+				var populationOptions = {
+					strokeColor: "#FF0000",
+					strokeOpacity: 0.8,
+					strokeWeight: 2,
+					fillColor: "#FF0000",
+					fillOpacity: 0.35,
+					map: map,
+					center: new google.maps.LatLng(40.71156, -73.95925),
+					radius: 2*1000
+				};
+				cityCircle = new google.maps.Circle(populationOptions);
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div id="maps"></div>
+	</body>
+</html>

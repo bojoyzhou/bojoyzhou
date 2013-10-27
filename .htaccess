@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(cgi|static)
+RewriteRule \/*(\w+)\/* /static/shtml/$1.shtml [S=1]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(static|index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ /index.php/$1
+RewriteCond %{QUERY_STRING} vardump
+RewriteRule (.*) http://www.baidu.com/?$1 [R=301,QSA,L]
