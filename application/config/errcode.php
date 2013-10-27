@@ -6,6 +6,7 @@
 $baseErrCode=1;
 _define('SUCCESS',--$baseErrCode);
 _define('METHOD_NOT_EXIST',--$baseErrCode);
+_define('METHOD_UNINITIALIZED',--$baseErrCode);
 _define('USER_NOT_LOGIN',--$baseErrCode);
 _define('ACCESS_METHOD_DENIED',--$baseErrCode);
 

@@ -3,7 +3,6 @@
  * 所有controller的基类
  * 进行csrf校验
  */
-global $ERRCODE;
 class MY_Controller extends CI_Controller{
 	protected $noCSRF;
 
@@ -11,7 +10,7 @@ class MY_Controller extends CI_Controller{
 		parent::__construct();
 		$this->noCSRF=array();
 	}
-	public function _remap($method){
+	public function _remap($method,$params=array()){
 		$clName=get_class($this);
 		if(!strcasecmp($clName,'cgi')){
 			if(method_exists($this,$method)){
@@ -21,7 +20,7 @@ class MY_Controller extends CI_Controller{
 						"msg"=>"user_not_login"
 					);
 				}else{
-					$result=call_user_func(array($this,$method),$this->input);
+					$result=call_user_func(array($this,$method),$params);
 					$ret=array(
 						"errCode"=>$result[0],
 						"msg"=>$GLOBALS['ERRCODE'][$result[0]],
