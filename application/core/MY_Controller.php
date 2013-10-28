@@ -21,6 +21,9 @@ class MY_Controller extends CI_Controller{
 					);
 				}else{
 					$result=call_user_func(array($this,$method),$params);
+					if(count($result)!==2){
+						$result=array(METHOD_UNINITIALIZED,null);
+					}
 					$ret=array(
 						"errCode"=>$result[0],
 						"msg"=>$GLOBALS['ERRCODE'][$result[0]],

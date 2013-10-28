@@ -9,6 +9,8 @@ _define('METHOD_NOT_EXIST',--$baseErrCode);
 _define('METHOD_UNINITIALIZED',--$baseErrCode);
 _define('USER_NOT_LOGIN',--$baseErrCode);
 _define('ACCESS_METHOD_DENIED',--$baseErrCode);
+_define('DATABASE_INSERT_ERR',--$baseErrCode);
+_define('DATABASE_UPDATE_ERR',--$baseErrCode);
 
 function _define($string,$val){
 	define($string,$val);

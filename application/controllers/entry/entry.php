@@ -1,6 +1,5 @@
 <?php
 class Entry{
-
 	protected function get(){
 		return array(METHOD_UNINITIALIZED,implode('/',func_get_args()));
 	}
@@ -10,7 +9,7 @@ class Entry{
 	}
 
 	protected function put($id,$desc){
-		return array(METHOD_UNINITIALIZED,array('id'=>$id,'desc'=>$desc));
+		return array(METHOD_UNINITIALIZED,array($id,$desc));
 	}
 
 	protected function delete($id){
@@ -22,14 +21,20 @@ class Entry{
 	}
 
 	private function _post(){
-		$args[]=json_decode($_POST['data']);
+		$args[]=isset($_POST['data'])?(array)json_decode($_POST['data']):array();
 		return call_user_func_array(array($this,'post'), $args);
 	}
 
 	private function _put(){
 		$args=func_get_args();
-		$args=json_decode($_POST['data']);
-		return call_user_func_array(array($this,'put'), func_get_args());
+		if($_SERVER['REQUEST_METHOD']==='PUT'){
+			$data=file_get_contents('php://input');
+			$data=urldecode($data);
+			$args[]=(array)json_decode($data);	
+		}else{
+			$args[]=isset($_POST['data'])?(array)json_decode($_POST['data']):array();
+		}
+		return call_user_func_array(array($this,'put'), $args);
 	}
 
 	private function _delete(){

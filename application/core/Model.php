@@ -3,13 +3,13 @@
  * 所有controller的基类,都继承MY_Controller
  * 进行csrf校验
  */
-class MY_Model extends CI_Model{
+class Model{
 	private $table;
 	private $fields;
 	private $record;
 	public function __construct($table){
-		parent::__construct();
-		$this->load->database(ENVIRONMENT);
+		$CI=&get_instance();
+		$CI->load->database(ENVIRONMENT);
 		$this->table=$table;
 	}
 
@@ -23,7 +23,7 @@ class MY_Model extends CI_Model{
 
 	private function getData($res){
 		$ret=array();
-		while(($row=mysql_fetch_array($res))===true){
+		while(($row=mysql_fetch_assoc($res))!==false){
 			$ret[]=$row;
 		}
 		return $ret;
@@ -35,7 +35,8 @@ class MY_Model extends CI_Model{
 			return array();
 		}else{
 			$fields=implode('`,`',$this->fields);
-			if($id!=='-1'){
+			$cond='';
+			if($id!==-1){
 				$cond=' WHERE id='.$id;
 			}
 			return $this->getData(mysql_query('SELECT `'.$fields.'` FROM `'.$this->table.'`'.$cond));
@@ -58,7 +59,10 @@ class MY_Model extends CI_Model{
 
 	public function insert($record=array()){
 	    $values = array_map('mysql_real_escape_string', array_values($record));
-	    $keys = array_keys($inserts);
-	    return mysql_query('INSERT INTO `'.$table.'` (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')');
+	    $keys = array_keys($record);
+	    if(count($keys)<1){
+	    	return false;
+	    }
+	    return mysql_query('INSERT INTO `'.$this->table.'` (`'.implode('`,`', $keys).'`) VALUES (\''.implode('\',\'', $values).'\')');
 	}
 }

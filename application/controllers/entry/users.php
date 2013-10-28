@@ -1,30 +1,39 @@
 <?php
 class Users extends Entry{
-	private $storage;
+	private $userModel;
 
 	public function __construct(){
-		$this->storage=array(
-			'-1'=>'null',
-			'1'=>'bojoyzhou1',
-			'2'=>'bojoyzhou2',
-			'3'=>'bojoyzhou3',
-			'4'=>'bojoyzhou4'
-		);
+		$this->userModel=new Model('consumer');
 	}
 
 	public function get($id='-1'){
-		return array(SUCCESS,$id==='-1'?$this->storage:isset($this->storage[$id])?$this->storage[$id]:null);
+		$this->userModel->setFields(array('name'));
+		return array(SUCCESS,$this->userModel->select($id));
 	}
 
-	public function post(){
-
+	public function post($desc){
+		$ret=$this->userModel->insert($desc);
+		if($ret){
+			return array(SUCCESS,null);
+		}
+		return array(DATABASE_INSERT_ERR,mysql_error());
 	}
 
-	public function put($data){
-
+	public function put($id,$data){
+		$ret=$this->userModel->update($id,$data);
+		if($ret){
+			return array(SUCCESS,null);
+		}
+		return array(DATABASE_UPDATE_ERR,mysql_error());
 	}
 
 	public function delete($userId='*'){
-
+		$userId=intval($userId);
+		if($userId){
+			if($this->userModel->delete($userId)){
+				return array(SUCCESS,null);
+			}
+		}
+		return array(DATABASE_UPDATE_ERR,mysql_error());
 	}
 }
