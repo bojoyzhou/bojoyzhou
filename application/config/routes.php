@@ -37,7 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+$route['api/([a-z]+)'] = "$1";
+$route['api/([a-z]+)/(:any)'] = "$1/$2";
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 

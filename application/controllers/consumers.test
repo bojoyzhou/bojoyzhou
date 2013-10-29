@@ -1,0 +1,15 @@
+GET /api/consumers/
+	<<<<{"errCode":0,"msg":"success","data":[{"name":"vurgoe"},{"name":"bojoy"}]}
+GET /api/consumers/1
+	<<<<{"errCode":0,"msg":"success","data":[{"name":"vurgoe"}]}
+
+POST /api/consumers/
+	>>>>{"name":"newOne","score":10,"addressId":"1,2"}
+	<<<<{"errCode":0,"msg":"success","data":null}
+
+PUT /api/consumers/6
+	>>>>{"name":"newName","score":20,"addressId":"1"}
+	<<<<{"errCode":0,"msg":"success","data":null}
+
+DELETE http://chi.bojoy.name/api/consumers/6
+	<<<<{"errCode":0,"msg":"success","data":null}

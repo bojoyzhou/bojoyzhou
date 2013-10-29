@@ -1,24 +1,10 @@
 <?php
-/**
- * 所有controller的基类,都继承MY_Controller
- * 进行csrf校验
- */
-class Model{
+class MY_Model extends CI_Model{
 	private $table;
-	private $fields;
-	private $record;
-	public function __construct($table){
-		$CI=&get_instance();
-		$CI->load->database(ENVIRONMENT);
-		$this->table=$table;
-	}
 
-	public function setFields($fields){
-		$this->fields=$fields;
-	}
-
-	public function __set($key,$value){
-		$this->$key=$value;
+	public function __construct(){
+		$this->load->database(ENVIRONMENT);
+		$this->table=preg_replace('/s_(.*)/','',get_class($this));
 	}
 
 	private function getData($res){
@@ -29,17 +15,18 @@ class Model{
 		return $ret;
 	}
 
-	public function select($id='-1'){
+	public function select($fields=array(),$id=0){
 		$id=intval($id,10);
-		if(!isset($this->fields)){
+		if(!count($fields)){
 			return array();
 		}else{
-			$fields=implode('`,`',$this->fields);
+			$fields=implode('`,`',$fields);
 			$cond='';
-			if($id!==-1){
+			if($id){
 				$cond=' WHERE id='.$id;
 			}
-			return $this->getData(mysql_query('SELECT `'.$fields.'` FROM `'.$this->table.'`'.$cond));
+			$sql='SELECT `'.$fields.'` FROM `'.$this->table.'`'.$cond;
+			return $this->getData(mysql_query($sql));
 		}
 	}
 
