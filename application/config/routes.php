@@ -39,6 +39,7 @@
 */
 $route['api/([a-z]+)'] = "$1";
 $route['api/([a-z]+)/(:any)'] = "$1/$2";
+$route['test/(:any)'] = "test/$1";
 $route['default_controller'] = "index";
 $route['404_override'] = '';
 

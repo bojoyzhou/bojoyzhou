@@ -1,12 +1,12 @@
 <?php
-class Consumers extends MY_Controller{
+class Orders extends MY_Controller{
 
 	public function __construct(){
 		parent::__construct();
 	}
 
 	public function get($id='-1'){
-		return array(SUCCESS,$this->model->select(array('name','phone','address'),$id));
+		return array(SUCCESS,$this->model->select(array('name'),$id));
 	}
 
 	public function post($desc){

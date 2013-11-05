@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Welcome</title>
+		<link rel="stylesheet" href="/static/css/reset.css" />
+		<link rel="stylesheet" href="/static/css/homepage.css" />
+	</head>
+	<body>
+		<div class="homepage"> <div class="viewport"> <ul class="shops hide"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> </ul> <div id="map" class="map"> </div> </div> <ul class="list-items"> <li></li> <li></li> <li></li> <li></li> </ul> </div>
+	</body>
+</html>

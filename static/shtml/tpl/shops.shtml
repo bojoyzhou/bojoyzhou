@@ -1,0 +1,52 @@
+<style>
+	ol li{
+		line-height: 34px;
+	}
+	ul,ul li{
+		display: inline-block;
+		margin: 5px;
+		padding: 5px;
+	}
+</style>
+<ol>
+	<li>
+		<ul>
+			<li>name</li>
+			<li>address</li>
+			<li>location</li>
+			<li>sumary</li>
+			<li>longitude</li>
+			<li>longitude</li>
+			<li>score</li>
+			<li>discount</li>
+			<li>style</li>
+			<li>sales</li>
+			<li>payment</li>
+			<li>shipping</li>
+			<li>spread</li>
+			<li>balance</li>
+			<li>status</li>
+		</ul>
+	</li>
+	{{#each data}}
+	<li>
+		<ul>
+			<li>{{name}}</li>
+			<li>{{address}}</li>
+			<li>{{location}}</li>
+			<li>{{sumary}}</li>
+			<li>{{longitude}}</li>
+			<li>{{longitude}}</li>
+			<li>{{score}}</li>
+			<li>{{discount}}</li>
+			<li>{{style}}</li>
+			<li>{{sales}}</li>
+			<li>{{payment}}</li>
+			<li>{{shipping}}</li>
+			<li>{{spread}}</li>
+			<li>{{balance}}</li>
+			<li>{{status}}</li>
+		</ul>
+	</li>
+	{{/each}}
+</ol>

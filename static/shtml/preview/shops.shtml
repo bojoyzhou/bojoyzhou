@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Welcome</title>
+		<link rel="stylesheet" href="/static/css/reset.css" />
+		<link rel="stylesheet" href="/static/css/shops.css" />
+	</head>
+	<body>
+		<div class="shops">
+			<div class="portal">
+				<img class="avatar" width="102" height="102" src="/static/img/shops/shops.jpg">
+				<div class="desc">
+					<h1>测试体验店</h1><br>
+					<h3>服务大众</h3>
+				</div>
+			</div>
+			<ul class="content">
+				<li>
+					<div class="pic">
+						<img src="/static/img/shops/dish1.jpg">
+						<div class="desc">
+							<span class="tag">香</span>
+							<span class="tag">好吃</span>
+							<span class="tag">下次还来</span>
+						</div>
+					</div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"><h3>售出10份</h3><u>8条评论</u></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+				<li>
+					<div class="pic"><img src="/static/img/shops/dish1.jpg"></div>
+					<div class="price"><span>$<strong>10.80</strong></span></div>
+					<div class="quantity"></div>
+					<div class="services"></div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

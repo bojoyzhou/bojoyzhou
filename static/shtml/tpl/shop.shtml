@@ -1,0 +1,36 @@
+<style>
+	ol li{
+		line-height: 24px;
+		font-size: 18px;
+	}
+	li *{
+		line-height: 24px;
+		height: 24px;
+	}
+	ul,ul li{
+		display: inline-block;
+		margin: 5px;
+		padding: 5px;
+	}
+	ul li:first-child{
+		width: 80px;
+		text-align: right;
+	}
+</style>
+<ol>
+<li><ul><li>name</li><li>{{name}}</li></ul></li>
+<li><ul><li>address</li><li>{{address}}</li></ul></li>
+<li><ul><li>location</li><li>{{location}}</li></ul></li>
+<li><ul><li>sumary</li><li>{{sumary}}</li></ul></li>
+<li><ul><li>longitude</li><li>{{longitude}}</li></ul></li>
+<li><ul><li>latitude</li><li>{{latitude}}</li></ul></li>
+<li><ul><li>score</li><li>{{score}}</li></ul></li>
+<li><ul><li>discount</li><li>{{discount}}</li></ul></li>
+<li><ul><li>style</li><li>{{style}}</li></ul></li>
+<li><ul><li>sales</li><li>{{sales}}</li></ul></li>
+<li><ul><li>payment</li><li>{{payment}}</li></ul></li>
+<li><ul><li>shipping</li><li>{{shipping}}</li></ul></li>
+<li><ul><li>spread</li><li>{{spread}}</li></ul></li>
+<li><ul><li>balance</li><li>{{balance}}</li></ul></li>
+<li><ul><li>status</li><li>{{status}}</li></ul></li>
+</ol>

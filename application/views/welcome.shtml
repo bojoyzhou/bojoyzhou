@@ -6,14 +6,7 @@
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSZw16C3mESz2yByXYr_Dl79WwxKYfags&sensor=true"></script>
 		<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://cdn.menkr.com/sea.js" data-config="config/config.js" charset="utf-8"></script>
-		<style type="text/css">
-			html,body,#maps{
-				margin: 0;
-				padding: 0;
-				height: 100%;
-				width: 100%;
-			}
-		</style>
+		<link rel="stylesheet" href="/static/css/reset.css" />
 		<script>
 		seajs.use(['jquery'], function($) {
 			$(function(){

@@ -9,7 +9,7 @@ class MY_Model extends CI_Model{
 
 	private function getData($res){
 		$ret=array();
-		while(($row=mysql_fetch_assoc($res))!==false){
+		while($res&&($row=mysql_fetch_assoc($res))!==false){
 			$ret[]=$row;
 		}
 		return $ret;
@@ -18,16 +18,17 @@ class MY_Model extends CI_Model{
 	public function select($fields=array(),$id=0){
 		$id=intval($id,10);
 		if(!count($fields)){
-			return array();
+			$fields='*';
 		}else{
 			$fields=implode('`,`',$fields);
+			$fields='`'.$fields.'`';
+		}
 			$cond='';
 			if($id){
 				$cond=' WHERE id='.$id;
 			}
-			$sql='SELECT `'.$fields.'` FROM `'.$this->table.'`'.$cond;
+			$sql='SELECT '.$fields.' FROM `'.$this->table.'`'.$cond;
 			return $this->getData(mysql_query($sql));
-		}
 	}
 
 	public function delete($id){
