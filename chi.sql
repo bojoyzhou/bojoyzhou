@@ -33,9 +33,9 @@ CREATE TABLE `address` (
 -- ----------------------------
 -- Records of address
 -- ----------------------------
-INSERT INTO `address` VALUES ('1', '谢秉磊', '18940929250', '大连海事大学E1', null, null, null, null);
-INSERT INTO `address` VALUES ('2', '周明波', '18688820004', '深圳宝安区湾仔码头1号1001号仓库', null, null, null, null);
-INSERT INTO `address` VALUES ('3', '大螃蟹', '13484226375', '浙江省余姚市舜水北路169号2-202', null, null, null, null);
+INSERT INTO `address` VALUES ('1', '---', '18940900000', '大连海事大学E1', null, null, null, null);
+INSERT INTO `address` VALUES ('2', '---', '186880000004', '深圳宝安区湾仔码头1号1001号仓库', null, null, null, null);
+INSERT INTO `address` VALUES ('3', '大螃蟹', '13480000375', '浙江省余姚市舜水北路169号2-202', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `comment`
